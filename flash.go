@@ -37,7 +37,7 @@ func main() {
 	inDir := filepath.Dir(outFile)
 	os.MkdirAll(inDir, 0777)
 
-	f, err := os.OpenFile(outFile, os.O_RDWR|os.O_CREATE, 0644)
+	f, err := os.OpenFile(outFile, os.O_RDWR|os.O_CREATE|os.O_EXCL, 0644)
 	if err != nil {
 		os.Stderr.Write([]byte(err.Error() + "\n"))
 		os.Exit(2)
